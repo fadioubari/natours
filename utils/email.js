@@ -9,6 +9,7 @@ module.exports = class Email {
     this.url = url;
     this.from = `Jonas Schmedtmann <${process.env.EMAIL_FROM}>`;
   }
+
   newTransport() {
     if (process.env.NODE_ENV === 'production') {
       // Sendgrid
@@ -49,7 +50,6 @@ module.exports = class Email {
       subject,
       html,
       text: htmlToText.fromString(html),
-      // html:
     };
 
     // 3) Create a transport and send email
